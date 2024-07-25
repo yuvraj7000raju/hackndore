@@ -1,10 +1,8 @@
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState, React } from "react";
 import { app } from "../../firebase";
-import { useFirebase } from "../../context/Firebase";
 
 export default function Register() {
-  const { signUpUserEmail } = useFirebase();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,9 +38,7 @@ export default function Register() {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button
-        onClick={() => {
-          signUpUserEmail(email, password);
-        }}
+        onClick={handleRegister}
       >
         Register
       </button>
