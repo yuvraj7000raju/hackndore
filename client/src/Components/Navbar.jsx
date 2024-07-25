@@ -1,5 +1,7 @@
 import { signOut } from "firebase/auth";
 import React from "react";
+import { useUserContext } from "../context/userContext";
+import { auth } from "../firebase";
 
 export default function Navbar() {
   const user = useUserContext();

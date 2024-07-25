@@ -3,7 +3,6 @@ import { useState, React } from "react";
 import { app } from "../../firebase";
 
 export default function Register() {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -24,25 +23,31 @@ export default function Register() {
   };
 
   return (
-    <div>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button
-        onClick={handleRegister}
-      >
-        Register
-      </button>
-      {error && <p>{error}</p>}
+    <div className="h-dvh flex flex-col justify-center items-center align-middle dark:bg-slate-900">
+      <div className="flex flex-col gap-5 shadow-lg p-10 rounded-2xl bg-slate-800">
+        <h1 className="text-2xl text-white font-medium text-center">Register</h1>
+        <input
+          className="border border-gray-300 rounded-md p-2 w-60"
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          className="border border-gray-300 rounded-md p-2 w-60"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button
+          className="bg-purple-500 hover:bg-purple-700 rounded-md mx-auto p-2 text-white"
+          onClick={handleRegister}
+        >
+          Register
+        </button>
+        {error && <p>{error}</p>}
+      </div>
     </div>
   );
 }
